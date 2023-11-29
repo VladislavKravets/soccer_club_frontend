@@ -1,0 +1,46 @@
+.participants {
+    display: flex;
+}
+
+.find-param input {
+    border-radius: 50px;
+    background: #151e1a;
+    color: white;
+    width: 300px;
+    height: 50px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.find-param input[type=submit] {
+    border-radius: 50px;
+    background: #151e1a;
+    color: white;
+    margin-left: 20px;
+}
+
+.teams {
+    margin-top: 30px;
+}
+
+.grid-container-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки в одному ряду */
+    gap: 20px; /* Простір між елементами */
+    place-items: center; /* Центрування як по горизонталі, так і по вертикалі */
+}
+
+.team-card {
+    width: 270px;
+    height: 220px;
+    background: white;
+    text-align: center;
+    margin: auto;
+}
+.team-card img{
+    height: 170px;
+    width: 100%;
+}
+.team-card h3{
+    margin-top: 10px;
+}

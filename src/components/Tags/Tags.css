@@ -1,0 +1,23 @@
+.tag-item {
+    margin-top: 20px;
+    /*background: greenyellow;*/
+    border: 1px solid #151e1a;
+    display: inline-block; /* Добавить это свойство */
+    max-width: 200px; /* Установите максимальную ширину по вашему усмотрению */
+    margin-right: 20px;
+}
+
+.tag-text {
+    display: block;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 11px;
+    line-height: 21px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #151e1a;
+    max-width: 100%; /* Установите максимальную ширину по вашему усмотрению */
+    white-space: nowrap; /* Предотвращает перенос текста на следующую строку */
+    overflow: hidden; /* Скрывает текст, который не помещается в блок */
+    text-overflow: ellipsis; /* Добавляет многоточие, если текст не помещается */
+}

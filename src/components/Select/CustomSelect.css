@@ -1,0 +1,63 @@
+.custom-select {
+    text-align: center;
+    position: relative;
+    width: 150px;
+    background: #174543;
+    /*border: 1px solid #ccc;*/
+    /*border:none;*/
+    /*outline:none;*/
+    /*border:transparent;*/
+    border-radius: 50px;
+    color: white;
+}
+.custom-select:hover {
+    background: #5d8e69;
+}
+
+.select-trigger {
+    padding: 10px;
+    cursor: pointer;
+    /*border: 1px solid #ccc;*/
+    border-radius: 50px;
+}
+
+.options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.options {
+    display: none;
+    /*background-color: #fff;*/
+    /*border: 1px solid #ccc;*/
+    border-top: none;
+}
+
+.option {
+    background: #174543;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s ease; /* Анімація при наведенні */
+    border-radius: 50px; /* Закруглення для опцій */
+
+}
+
+.option:last-child {
+    border-bottom: none;
+}
+
+.option.selected {
+    background: #5d8e69;
+}
+
+.custom-select.open .options {
+    display: block;
+}
+
+.option:hover {
+    background: #5d8e69;
+}

@@ -1,0 +1,34 @@
+.card-news {
+    background: white;
+    width: 440px;
+    height: 350px;
+}
+
+.card-news img{
+    width: 100%;
+    height: 210px;
+}
+
+.card-news img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-news-text {
+    font-size: 14px;
+    padding: 30px;
+}
+
+.card-news-text-date {
+    font-size: 10px;
+    color: gray;
+}
+
+.card-news-text-info {
+    margin-top: 10px;
+}
+
+.green-background {
+    background: #174543;
+    color: white;
+}

@@ -1,0 +1,38 @@
+.image-container {
+    width: 100%; /* Ширина изображения */
+    height: 0;
+    padding-bottom: 60%; /* Высота изображения как процент от ширины (например, 60% для 3:2 соотношения сторон) */
+    /*background: url('../../public/res/Spain_national_under-21_football_team_2011.jpg') center/cover no-repeat; !* Замените 'your-image-url.jpg' на фактический URL вашего изображения *!*/
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 75%;
+    left: 4%;
+    width: 832px;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    color: white; /* Цвет текста в боксе */
+}
+
+.overlay .date{
+    width: 130px;
+    height: 30px;
+    background: yellow;
+    border-radius: 0 0 100px 0; /* Скруглить нижний правый угол */
+    color: black;
+    padding-left: 20px;
+    padding-top: 3px;
+}
+
+.overlay-text {
+    padding: 20px;
+}
+
+.post-text {
+    background: white;
+    width: 100%;
+    padding: 20px 50px;
+    text-align: left;
+}

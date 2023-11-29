@@ -1,0 +1,26 @@
+.card-tour {
+    width: 280px;
+    height: 322px;
+    background: #ffff;
+}
+
+.card-tour img {
+    width: 100%;
+    height: 200px;
+}
+
+.card-tour h4 {
+    padding: 10px;
+}
+
+.info-tour {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    padding: 5px 10px;
+    color: rgb(128, 128, 128);
+}
+
+.tour-tag {
+    margin-left: 10px;
+}

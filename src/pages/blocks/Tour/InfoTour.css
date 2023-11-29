@@ -1,0 +1,13 @@
+.info-tour-button {
+    width: 100%;
+    background: gainsboro;
+    color: black;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.info-tour-button:hover {
+    cursor: pointer;
+    background: white;
+}
