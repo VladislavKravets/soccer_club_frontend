@@ -17,6 +17,7 @@ const TournamentForm = () => {
     const fetchData = async () => {
         try {
             const data = await getAllTeamsNotByTournament(id);
+            console.log(data)
             console.log(data.data.message)
             if (data.data.message)
                 window.location.href = '/';
@@ -62,13 +63,16 @@ const TournamentForm = () => {
     };
 
 
+    console.log(teams)
     return (
         <div className='container main form-container' style={{textAlign: 'center'}}>
             <h2>Додавання команд в турнір</h2>
             <ul>
                 {teams.map((team) => (
-                    <li key={team.tournamentid}>
+                    <li key={team.tournamentid} style = {{margin: "0 auto"}}>
+                        {team.photoUrl && <img src={team.photoUrl} alt=""/>}
                         {team.teamname}{' '}
+                        <br/>
                         <button onClick={() => removeTeamHandler(team.teamid)}>Видалити команду з турніру</button>
                     </li>
                 ))}

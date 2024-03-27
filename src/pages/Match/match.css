@@ -1,0 +1,56 @@
+.match-image-container {
+    position: relative;
+    width: 910px; /* Розмір вашого зображення */
+    height: 350px; /* Розмір вашого зображення */
+}
+
+.match-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Затемнення - змініть альфа-канал, якщо потрібно */
+}
+
+.match-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    z-index: 1; /* За замовчуванням текст буде зверху */
+    width: 80%; /* Зміни ширину за потребою */
+    max-width: 500px; /* Максимальна ширина тексту */
+}
+
+.match {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #f7f7f7;
+}
+
+.match-date{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    margin: auto;
+    font-size: 20px;
+}
+
+.match-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.match-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+

@@ -21,7 +21,6 @@ export const getMatchById = async (id) => {
     }
 };
 
-//
 // // Створити нове бронювання
 export const createMatch = async (match, token) => {
     try {
@@ -36,7 +35,7 @@ export const createMatch = async (match, token) => {
         throw new Error(error.response.data.message);
     }
 };
-//
+
 // // Оновити існуюче бронювання
 export const updateMatch = async (id, match, token) => {
     try {
@@ -51,12 +50,16 @@ export const updateMatch = async (id, match, token) => {
         throw new Error(error.response.data.message);
     }
 };
-//
-// // Видалити бронювання за його ідентифікатором
-// export const deleteBooking = async (id) => {
-//     try {
-//         await axios.delete(`${API_BASE_URL}/bookings/${id}`);
-//     } catch (error) {
-//         throw new Error(error.response.data.message);
-//     }
-// };
+
+// Видалити матч за його ідентифікатором
+export const deleteMatchById = async (id, token) => {
+    try {
+        await axios.delete(`${API_BASE_URL}/match/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+    } catch (error) {
+        throw new Error(error.response.data.message);
+    }
+};

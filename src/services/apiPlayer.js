@@ -13,6 +13,14 @@ export const getPlayers = async () => {
     }
 };
 
+export const getPlayersByTeamId = async (id) => {
+    try {
+        return await axios.get(`${API_BASE_URL}/players/team/${id}`);
+    } catch (error) {
+        throw new Error(error.response.data.message);
+    }
+};
+
 export const getPlayerStats = async () => {
     try {
         const response = await axios.get(`${API_BASE_URL}/players/getPlayerStats`);
@@ -21,7 +29,7 @@ export const getPlayerStats = async () => {
         throw new Error(error.response.data.message);
     }
 };
-//
+
 // // Отримати окреме бронювання за його ідентифікатором
 export const getPlayersGetId = async (id) => {
     try {
@@ -31,16 +39,32 @@ export const getPlayersGetId = async (id) => {
         throw new Error(error.response.data.message);
     }
 };
-//
-// // Створити нове бронювання
-// export const createBooking = async (bookingData) => {
-//     try {
-//         const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
-//         return response.data;
-//     } catch (error) {
-//         throw new Error(error.response.data.message);
-//     }
-// };
+
+// Створити нове бронювання
+export const createPlayer = async (data) => {
+    // const blob = new Blob([JSON.stringify(data.player)], {
+    //     type: 'application/json'
+    // });
+
+    const formData = new FormData();
+    // formData.append('file', data.file);
+    // formData.append('player', blob);
+
+    // Выводим содержимое formData в консоль
+    // console.log(formData.get('file'));
+
+    try {
+        // console.log('Server Response:', response.data);
+        return await axios.post(`${API_BASE_URL}/players`, data.player, {
+            headers: {
+                // 'Content-Type': 'multipart/form-data', // Set Content-Type to multipart/form-data if needed
+                'Authorization': `Bearer ${data.token}`
+            }
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
 //
 // // Оновити існуюче бронювання
 // export const updateBooking = async (id, bookingData) => {

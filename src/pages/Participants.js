@@ -163,9 +163,15 @@ function Participants(props) {
                     {/*<CustomSelect options={['2020', '2021']} onSelectChange={handleSelectYear}/>*/}
                     {
                         JSON.parse(localStorage.getItem('userInfo'))?.roles.toString() === Roles.admin &&
-                        <input className="custom-button" type="button" value="Додати команду" onClick={() => {
-                            window.location.href = '/create-team';
-                        }}/>
+                        <input className="custom-button" type="button"
+                               value={selectedParticipant === 'Команди' ? 'Додати команду' : 'Додати гравця'}
+                               onClick={() => {
+                                   selectedParticipant === 'Команди' ?
+                                       window.location.href = '/admin/create-team'
+                                       :
+                                       window.location.href = '/admin/create-player'
+
+                               }}/>
                     }
                 </div>
             </div>
@@ -196,7 +202,7 @@ function Participants(props) {
                                     {paginatedData && paginatedData.map(post => (
                                         <li style={{listStyleType: 'none'}} key={post.teamId}>
                                             <a href={`/participants/team/${post.teamId}`}>
-                                                <TeamCard img={post.pathUrl} nameTeam={post.teamName}/>
+                                                <TeamCard img={post.photoUrl} nameTeam={post.teamName}/>
                                             </a>
                                         </li>
                                     ))}

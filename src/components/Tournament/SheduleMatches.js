@@ -1,7 +1,12 @@
 import React from 'react';
+import {Roles} from "../../enum/Roles";
+import {DontVisible} from "../../functions/userOrAdminAuthenticated";
+import {useNavigate} from "react-router-dom";
+import {deleteMatchById} from "../../services/apiMatches"
 
 // import './SheduleMathes.css';
 function SheduleMatches(props) {
+    const navigate = useNavigate();
     return (
         <div>
             <li className={"schedule__matches-item " + (props.date !== undefined ? 'green-background' : '')}>
@@ -18,10 +23,9 @@ function SheduleMatches(props) {
                         <a className="schedule__team-1" href={"/participants/team/" + props.info.teamId1}>
                             <span className="schedule__team-name schedule__team-name--right">
                                 {props.info.teamName1}
-                                {/*"Kolo druziv"*/}
                             </span>
                             <div className="schedule__team-logo schedule__team-logo--margin-left">
-                                {/*<img className="schedule__team-img" src="https://st.joinsport.io/team/1178111/logo/606d87edc02e4_100x100.jpg">*/}
+                                {/* Add team logo if needed */}
                             </div>
                         </a>
                         {
@@ -29,27 +33,36 @@ function SheduleMatches(props) {
                                 <a className="schedule__score" href={"/match/" + props.info.matchId}>
                                     <div className="schedule__score-main">
                                         {(props.info.team1TotalGoals || ' ') + " : " + (props.info.team2TotalGoals || ' ')}
-                                        {/*6 : 1*/}
                                     </div>
-                                    <div className="schedule__score-additional">
-                                    </div>
+                                    <div className="schedule__score-additional"></div>
                                 </a>
                                 :
-                                <p>Рахунку немає</p>
+                                <p>&nbsp; Рахунку немає &nbsp;</p>
                         }
-                        <a className="schedule__team-2" href={"/team/" + props.info.teamId2}>
+                        <a style = {{ paddingLeft: "20px"}} className="schedule__team-2" href={"/team/" + props.info.teamId2}>
                             <div className="schedule__team-logo schedule__team-logo--margin-right">
-                                {/*<img className="schedule__team-img" src="/assets/59b9badda1003665e5f4b7e41b4377e1/football_logo_100x100.png">*/}
+                                {/* Add team logo if needed */}
                             </div>
                             <span className="schedule__team-name schedule__team-name--left">
-                            {props.info.teamName2}
-                                {/*ДЮСШ №2*/}
-                        </span>
+                                {props.info.teamName2}
+                            </span>
                         </a>
                         <div>
-                            <p>Груповий
-                                етап {props.info.groupStage !== null ? props.info.groupStage : "Поки не обрано"}</p>
+                            <p>Груповий етап {props.info.groupStage !== null ? props.info.groupStage : "Поки не обрано"}</p>
                         </div>
+
+                        <DontVisible element={
+                            <div style={{paddingLeft: "20px"}}>
+                                <input className='custom-button' type="button" value="Редагувати" onClick={ () => {
+                                    navigate('/admin/update-match/' + props.info.matchId);
+                                }}/>
+                                <input className='custom-button' type="button" value="Видалити" onClick={ () => {
+                                    deleteMatchById(props.info.matchId, localStorage.getItem("token"));
+                                }}/>
+                            </div>
+                        } roles={[Roles.admin]}/>
+
+
                     </>
                 }
             </li>

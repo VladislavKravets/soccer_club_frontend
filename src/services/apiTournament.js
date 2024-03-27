@@ -65,8 +65,6 @@ export const createTournament = async (data) => {
     const formData = new FormData();
     formData.append('file', data.file);
     formData.append('tournament', blob);
-// Выводим содержимое formData в консоль
-//     console.log('Request:', formData.getAll());
     try {
         return await axios.post(`${API_BASE_URL}/tournament`, formData, {
             headers: {

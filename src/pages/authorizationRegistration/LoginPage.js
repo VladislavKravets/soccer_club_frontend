@@ -20,29 +20,55 @@ function LoginPage(props) {
     };
 
     return (
-        <div className='container main login-page'>
-            <div className="form-container">
-                <h2 className="page-title">Авторизація</h2>
-                <input
-                    type="text"
-                    placeholder="Ім'я користувача"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Пароль"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <button onClick={handleAuthorization}>Увійти</button>
-                {error && <div className="error">{error}</div>}
+        <div>
+            <div className='container'>
+                <div className="name-page">
+                    <h1 style={{
+                        width: "100%",
+                        textAlign: "center"
+                    }}>
+                        Авторизація
+                    </h1>
+                </div>
             </div>
-            <p>Нема аккаунту? Зареєеструйся - <a href="/registration"
-                                                 style={{textDecoration: 'underline'}}>Реєстрація</a></p>
-            <p>Забув пароль? Що ти тут забув? - <a href="#" style={{textDecoration: 'underline'}}>Скинути пароль</a></p>
+            <div className="main">
+                <div className="container">
+                    <div style={{
+                        width: "100%",
+                        background: "white",
+                        padding: "100px 0",
+                        borderRadius: "20px",
+                        paddingLeft: "20px"
+                    }}
+                         className="login-page">
+                        <div className="form-container">
+                            {/*<h2 className="page-title">Авторизація</h2>*/}
+                            <input
+                                type="text"
+                                placeholder="Логін"
+                                value={username}
+                                onChange={e => setUsername(e.target.value)}
+                            />
+                            <input
+                                type="password"
+                                placeholder="Пароль"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                            <button style={{width: "100%"}} onClick={handleAuthorization}>Увійти</button>
+                            {error && <div className="error">{error}</div>}
+                        </div>
+                        <p>Нема аккаунту? Зареєеструйся - <a href="/registration"
+                                                             style={{textDecoration: 'underline'}}>Реєстрація</a></p>
+                        <p>Забув пароль? Що ти тут забув? - <a href="#" style={{textDecoration: 'underline'}}>Скинути
+                            пароль</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    );
+)
+    ;
 }
 
 export default LoginPage;

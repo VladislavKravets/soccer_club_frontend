@@ -1,34 +1,74 @@
+/*.card-news {*/
+/*    background: white;*/
+/*    width: 440px;*/
+/*    height: 350px;*/
+/*}*/
+
+/*.card-news img{*/
+/*    width: 100%;*/
+/*    height: 210px;*/
+/*}*/
+
+/*.card-news img{*/
+/*    width: 100%;*/
+/*    object-fit: cover;*/
+/*}*/
+
+/*.card-news-text {*/
+/*    font-size: 14px;*/
+/*    padding: 30px;*/
+/*}*/
+
+/*.card-news-text-date {*/
+/*    font-size: 10px;*/
+/*    color: gray;*/
+/*}*/
+
+/*.card-news-text-info {*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.green-background {*/
+/*    background: #174543;*/
+/*    color: white;*/
+/*}*/
+
+
 .card-news {
-    background: white;
-    width: 440px;
-    height: 350px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    align-items: center;
 }
 
-.card-news img{
-    width: 100%;
-    height: 210px;
-}
-
-.card-news img{
-    width: 100%;
+.card-news img {
+    width: 150px; /* Змініть розмір зображення за вашими потребами */
+    height: 150px; /* Змініть розмір зображення за вашими потребами */
     object-fit: cover;
+    border-radius: 8px; /* Округлі кути для зображення */
+    margin-right: 20px; /* Відступ між зображенням і текстом */
 }
 
 .card-news-text {
-    font-size: 14px;
-    padding: 30px;
+    flex: 1;
 }
 
 .card-news-text-date {
-    font-size: 10px;
-    color: gray;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card-news-text-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .card-news-text-info {
-    margin-top: 10px;
-}
-
-.green-background {
-    background: #174543;
-    color: white;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
 }

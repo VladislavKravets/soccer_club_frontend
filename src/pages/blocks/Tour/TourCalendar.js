@@ -47,7 +47,7 @@ function TourCalendar(props) {
                 {
                     matches.length > 0 ?
                         <>
-                            <h3>По датах</h3>
+                            {/*<h3>По датах</h3>*/}
                             {
                                 Object.entries(groupedMatches).map(([date, matches]) => (
                                     <div key={date}>

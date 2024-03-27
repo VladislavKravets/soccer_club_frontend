@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useParams} from "react-router-dom";
+import {Url} from "../../enum/Url";
+
+const API_BASE_URL = Url.local;
 
 function PhotoUploadForm(props) {
     const {tag} = useParams();
@@ -34,17 +37,20 @@ function PhotoUploadForm(props) {
         formData.append('tag', tagInput);
 
         try {
-            const response = await axios.post('http://localhost:8080/api/photos/upload', formData, {
+            const response = await axios.post(`${API_BASE_URL}/photos/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+                    // 'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
             });
 
-            if(response.data.message) {
+            if (response.data.message) {
                 console.log(response.data.message);
                 setMessage(response.data.message);
-            }else
+            } else {
                 setMessage('Успішно завантажено фотографію');
+                console.log(response);
+            }
         } catch (error) {
             console.error('Ошибка при загрузке файла:', error);
             setMessage('Ошибка при загрузке файла.');
@@ -61,35 +67,49 @@ function PhotoUploadForm(props) {
 
     return (
         <div className='main'>
-            <div className='container login-page'>
-                <h1>Завантаження фотографій</h1>
-                <form onSubmit={handleFormSubmit} className="form-container">
-                    <input
-                        type="text"
-                        placeholder="Тег турніру"
-                        value={tagInput}
-                        onChange={e => setTagInput(e.target.value)}
-                    />
-                    <input
-                        className='upload-btn'
-                        type="file"
-                        onChange={handleFileChange}
-                    />
-                    {filePreview && (
-                        <img
-                            src={filePreview}
-                            alt="Preview"
-                            style={{
-                                maxWidth: '100%',
-                                maxHeight: '200px',
-                                marginTop: '10px',
-                                width: "100%",
-                                marginBottom: '10px'
-                            }}
+            <div className="container name-page">
+                <h1 style={{
+                    width: "100%",
+                    // textAlign: "center",
+                    padding: "10px 20px",
+                    background: "white",
+                    borderRadius: "30px"
+                }}>
+                    Додати фотографію
+                </h1>
+            </div>
+            <div className="container form-contain">
+                <div className='login-page'>
+                    <h1>Завантаження фотографій</h1>
+                    <form onSubmit={handleFormSubmit} className="form-container">
+                        <input
+                            type="text"
+                            placeholder="Тег турніру"
+                            value={tagInput}
+                            onChange={e => setTagInput(e.target.value)}
                         />
-                    )}
-                    <button type="submit">Завантажити</button>
-                </form>
+                        <input
+                            className='upload-btn'
+                            type="file"
+                            onChange={handleFileChange}
+                        />
+                        <div>
+                            {filePreview && (
+                                <div className="preview-container">
+                                    <img
+                                        type="file" className="my" id="myfile" name="myfile"
+                                        src={filePreview}
+                                        alt="Preview"
+                                        // className="file-preview"
+                                    />
+                                </div>
+                            )}
+                        </div>
+
+
+                        <button style={{marginTop: "20px", width: "100%"}} type="submit">Завантажити</button>
+                    </form>
+                </div>
                 {/*<p>{message}</p>*/}
                 <br/>
                 <h1 style={{color: 'black'}}>{message}</h1>

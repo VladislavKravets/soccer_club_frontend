@@ -30,17 +30,39 @@
     place-items: center; /* Центрування як по горизонталі, так і по вертикалі */
 }
 
+/*.team-card {*/
+/*    width: 270px;*/
+/*    height: 220px;*/
+/*    background: white;*/
+/*    text-align: center;*/
+/*    margin: auto;*/
+/*}*/
+/*.team-card img{*/
+/*    height: 170px;*/
+/*    width: 100%;*/
+/*}*/
+/*.team-card h3{*/
+/*    margin-top: 10px;*/
+/*}*/
+
 .team-card {
-    width: 270px;
-    height: 220px;
-    background: white;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
-    margin: auto;
 }
-.team-card img{
-    height: 170px;
+
+.team-card img {
     width: 100%;
+    max-height: 200px; /* Максимальна висота зображення */
+    object-fit: cover; /* Зображення буде зміщене, щоб вміститися */
+    border-radius: 8px; /* Округлі кути для зображення */
+    margin-bottom: 15px; /* Відступ між зображенням і текстом */
 }
-.team-card h3{
-    margin-top: 10px;
+
+.team-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0; /* Відмінити внутрішній відступ */
 }

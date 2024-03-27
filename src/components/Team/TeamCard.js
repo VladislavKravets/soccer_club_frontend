@@ -5,7 +5,7 @@ function TeamCard(props) {
         <div className="team-card">
             {
                 props.img ?
-                    <img src={props.img} alt="Картинка для новини"/>
+                    <img src={props.img} alt="Картинка команди"/>
                     :
                     <img src="/res/Spain_national_under-21_football_team_2011.jpg" alt="Картинка для новини"/>
             }

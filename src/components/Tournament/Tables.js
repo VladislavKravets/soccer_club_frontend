@@ -4,7 +4,6 @@ import {getTournamentTableById} from "../../services/apiTournament"
 
 function Tables(props) {
     const [tourTable, setTourTable] = useState([]);
-    // console.log(data)
     const columnsTeam = useMemo(
         () => [
             {

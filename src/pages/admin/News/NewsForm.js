@@ -31,10 +31,10 @@ const NewsForm = () => {
             const token = localStorage.getItem("token");
             const response = await createPost({news, file, token});
             console.log(response)
-            if (response.data.status === 400)
+            if (response.data.message)
                 console.log(response.data.message);
             else
-                window.location.href = '/post/' + response.data.tournamentId;
+                window.location.href = '/posts/' + response.data.tournamentId;
         } catch (error) {
             console.log('Помилка при отриманні даних:', error);
         }

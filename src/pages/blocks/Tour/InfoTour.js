@@ -3,12 +3,14 @@ import './InfoTour.css';
 import CardNews from '../../../components/Tournament/CardNews';
 import {getTournament, getTournamentAllNews, getTournamentAllPhoto} from '../../../services/apiTournament';
 import CardTour from '../../../components/Tournament/CardTour';
+import Modal from "../../../components/showImage/Modal";
 
 function InfoTour(props) {
     const [news, setNews] = useState([]);
     const [photo, setPhoto] = useState([]);
     const [visibleNewsCount, setVisibleNewsCount] = useState(2);
     const [visiblePhotoCount, setVisiblePhotoCount] = useState(2);
+    const [modalImageUrl, setModalImageUrl] = useState(null); // Додайте стан для посилання на фотографію в модальному вікні
 
     useEffect(() => {
         fetchInitialData();
@@ -33,10 +35,21 @@ function InfoTour(props) {
         setVisiblePhotoCount(visiblePhotoCount + 2);
     };
 
+    const handlePhotoClick = (imageUrl) => {
+        setModalImageUrl(imageUrl); // Встановлення посилання на фотографію для відображення в модальному вікні
+    };
+
+    const closeModal = () => {
+        setModalImageUrl(null); // Закриття модального вікна
+    };
+
+
     return (
         <div>
             <div className="container name-page">
-                <h1>Новини</h1>
+                <h1 style={{width: "100%", background:"white", padding:"10px", borderRadius: "20px", paddingLeft: "20px"}}>
+                    Новини
+                </h1>
             </div>
             <div>
                 <div className="grid-container-2">
@@ -57,12 +70,14 @@ function InfoTour(props) {
             </div>
             <div>
                 <div className="container name-page">
-                    <h1>Фото</h1>
+                    <h1 style={{width: "100%", background:"white", padding:"10px", borderRadius: "20px", paddingLeft: "20px"}}>
+                        Фото
+                    </h1>
                 </div>
                 <div className="grid-container-2">
                     {photo.length > 0 ? photo.slice(0, visiblePhotoCount).map(post => (
                             <li key={post.photoId}>
-                                <img src={post.patch} alt=""/>
+                                <img className='info-tour-image' src={post.patch} alt="" onClick={() => handlePhotoClick(post.patch)} />
                             </li>
                         ))
                         :
@@ -73,6 +88,8 @@ function InfoTour(props) {
                     <input className="info-tour-button" type="button" value="Показати більше" onClick={showMorePhotos}/>
                 )}
             </div>
+            {/* Модальне вікно для перегляду фотографій */}
+            {modalImageUrl && <Modal imageUrl={modalImageUrl} onClose={closeModal} />}
         </div>
     );
 }

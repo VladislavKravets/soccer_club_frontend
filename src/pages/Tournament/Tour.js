@@ -11,18 +11,19 @@ import {
     getTournamentAllNews, getTournamentAllPhoto,
     getTournamentInfoById
 } from "../../services/apiTournament";
+import ParticipantsTour from "../blocks/Tour/ParticipantsTour";
 
 function Tour(props) {
-    const { id } = useParams();
+    const {id} = useParams();
 
     const [tournamentInfo, setTournamentInfo] = useState('');
 
     const contentByOption = {
-        'Про турнір': <InfoTour id = {id}/>,
-        'Календар': <TourCalendar id = {id}/>,
-        'Таблиця та сітки': <Tables id = {id}/>,
+        'Про турнір': <InfoTour id={id}/>,
+        'Календар': <TourCalendar id={id}/>,
+        'Таблиця та сітки': <Tables id={id}/>,
         // 'Статистика': 'В розробці',
-        'Команди': 'В розробці',
+        'Команди': <ParticipantsTour id={id}/>,
         // 'Новини': 'В розробці',
         // 'Фото': 'В розробці',
         // 'Відео': 'В розробці',
@@ -56,7 +57,8 @@ function Tour(props) {
         switch (option) {
             case adminOption[1] : {
                 window.location.href = '/admin/update-tournament/' + id;
-            }break;
+            }
+                break;
             case adminOption[2] : {
                 // Вывести alert с вопросом и сохранить результат в переменную
                 const userConfirmed = window.confirm('Ви впевнені, що хочете видалити турнір?');
@@ -65,19 +67,24 @@ function Tour(props) {
                 if (userConfirmed) {
                     handleDeleteTournament();
                 }
-            }break;
+            }
+                break;
             case adminOption[3] : {
                 window.location.href = '/admin/photo-upload/' + tournamentInfo.tagName;
-            }break;
+            }
+                break;
             case adminOption[4] : {
                 window.location.href = '/admin/create-news/' + tournamentInfo.tagName;
-            }break;
+            }
+                break;
             case adminOption[5] : {
                 window.location.href = '/admin/tournament-form/' + id;
-            }break;
+            }
+                break;
             case adminOption[6] : {
                 window.location.href = '/admin/create-match/' + id;
-            }break;
+            }
+                break;
 
         }
     };
@@ -85,10 +92,10 @@ function Tour(props) {
     async function handleDeleteTournament() {
         try {
             // await deleteTournament(id,localStorage.getItem('token'));
-            const response = await deleteTournament(id,localStorage.getItem('token'));
+            const response = await deleteTournament(id, localStorage.getItem('token'));
             if (response) {
                 window.location.href = '/tournament';
-            }else {
+            } else {
                 console.log(response);
             }
         } catch (error) {
@@ -103,7 +110,7 @@ function Tour(props) {
             if (response.message) {
                 console.log(response.message);
                 window.location.href = '/tournament';
-            }else {
+            } else {
                 console.log(response);
                 setTournamentInfo(response);
             }
@@ -116,7 +123,12 @@ function Tour(props) {
         <div>
             <div className="container name-page">
                 <div>
-                <h1>Турнір {tournamentInfo.tournamentName}</h1>
+                    <h1>Турнір {tournamentInfo.tournamentName}</h1>
+                    <div style={{display:"flex", fontSize: "12px", color: "gray", padding: "10px 0"}}>
+                        <p style={{marginRight: "10px"}}>{tournamentInfo.startDate + " - " + tournamentInfo.endDate}</p>
+                        <p style={{marginRight: "10px"}}>{tournamentInfo.countTeam + " команд"}</p>
+                        <p style={{marginRight: "10px"}}>{tournamentInfo.status}</p>
+                    </div>
                 </div>
                 <div style={{display: "flex"}}>
                     <CustomSelect options={selectOptions} onSelectChange={handleSelectTournamentPage}/>

@@ -6,7 +6,7 @@ function SheduleMatches(props) {
             <li className="schedule__matches-item">
                 <div className="schedule__time-place">
                         <span className="schedule__time">
-                            {props.info.date}
+                            {props.info.date + " " + props.info.matchTime}
                             {/*03 КВІТ. 2021 / 11:20*/}
                         </span>
                 </div>
@@ -37,9 +37,16 @@ function SheduleMatches(props) {
                         </span>
                 </a>
                 <ul className='form-results-list'>
-                    <li className={props.info.win ? "form-results-list-win" : "form-results-list-loss"}>
-                        {props.info.win ? 'В' : 'П'}
-                    </li>
+                    {(() => {
+                        switch (props.info.win) {
+                            case 'lose':
+                                return <li className="form-results-list-loss">П</li>;
+                            case 'win':
+                                return <li className="form-results-list-win">В</li>;
+                            default:
+                                return <li className="form-results-list-draw">Н</li>;
+                        }
+                    })()}
                 </ul>
             </li>
         </div>
