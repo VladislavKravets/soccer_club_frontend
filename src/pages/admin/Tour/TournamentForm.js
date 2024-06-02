@@ -65,7 +65,7 @@ const TournamentForm = () => {
 
     console.log(teams)
     return (
-        <div className='container main form-container' style={{textAlign: 'center'}}>
+        <div className='main form-container' style={{textAlign: 'center'}}>
             <h2>Додавання команд в турнір</h2>
             <ul>
                 {teams.map((team) => (

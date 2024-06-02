@@ -6,6 +6,8 @@ import {useParams} from "react-router-dom";
 const NewsForm = () => {
     const {tag} = useParams();
     // const [tagTournament, setTagTournament] = useState(tag | '');
+    const [filePreview, setFilePreview] = useState(null);
+
     const [file, setFile] = useState(null);
     const [news, setNews] = useState({
         title: '',
@@ -42,15 +44,24 @@ const NewsForm = () => {
 
 
     return (
-        <div className='container main'>
+        <div className='main'>
             <form onSubmit={handleSubmit} className='form-container'>
                 <div>
-                    <label>Выберите файл:</label>
-                    <input type="file" onChange={handleFileChange}/>
+                    <label htmlFor="myfile" className="label">Фотографія новини:</label>
+                    <input type="file" className="my" id="myfile" name="myfile" onChange={handleFileChange}/>
                 </div>
                 <div>
                     <label>Заголовок:</label>
                     <input type="text" name="title" value={news.title} onChange={handleInputChange} required/>
+                    {filePreview && (
+                        <div className="preview-container">
+                            <img
+                                src={filePreview}
+                                alt="Preview"
+                                className="file-preview"
+                            />
+                        </div>
+                    )}
                 </div>
                 <div>
                     <label>Текст новини:</label>

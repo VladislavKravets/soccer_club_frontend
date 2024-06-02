@@ -1,0 +1,71 @@
+{
+  "name": "soccer_club",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@tinymce/tinymce-react": "^3.12.6",
+    "axios": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "draft-js": "0.11.7",
+    "draftjs-to-html": "0.9.1",
+    "form-data": "^4.0.0",
+    "install": "^0.13.0",
+    "jwt-decode": "^4.0.0",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-quill": "^2.0.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "5.0.1",
+    "react-table": "^7.8.0",
+    "react-thunk": "^1.0.0",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0",
+    "stream": "^0.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest --config jest.config.cjs",
+    "eject": "react-scripts eject"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-react": "^7.23.3",
+    "@testing-library/jest-dom": "^5.14.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.7",
+    "jest-fetch-mock": "^3.0.3",
+    "react-test-renderer": "^18.2.0"
+  }
+}

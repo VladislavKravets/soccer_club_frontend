@@ -115,11 +115,10 @@ function Team(props) {
 
     // Функция для выбора первых пяти матчей
     const getFirstFiveMatches = () => {
-        if(data.numberMathPlayed) {
+        if (data.numberMathPlayed) {
             const result = [];
             let i = 0;
-            while (result.length < 5) {
-                // Проверяем каждый массив на наличие элемента
+            while (result.length < 5 && i < matches.wonMatches.length) {
                 if (matches.wonMatches[i] !== null) {
                     result.push(matches.wonMatches[i]);
                 }
@@ -133,6 +132,7 @@ function Team(props) {
             }
             return result;
         }
+        return [];
     };
 
     const getMatchColor = (matchId) => {

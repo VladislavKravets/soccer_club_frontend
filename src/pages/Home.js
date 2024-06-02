@@ -31,7 +31,7 @@ function Home(props) {
                     <div className='global-news'>
                         <h1>Спортивні новини України</h1>
                         <ul>
-                            {news.map((article, index) => (
+                            {news?.map((article, index) => (
                                 <div className="global-news-news-card">
                                     <img src={article.urlToImage} alt={article.title} className="news-image" />
                                     <div className="global-news-news-content">

@@ -1,0 +1,383 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    display: block;
+    font: 14px/50px Tahoma;
+    transition: all 0.18s ease-in-out;
+    border: 1px solid #333;
+    color: #333;
+}
+
+.label:hover {
+    color: white;
+    background: #333;
+}
+
+.my {
+    margin: -200px 0;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    /*position: absolute;*/
+    z-index: -1;
+}
+
+a {
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    color: inherit; /* Используем наследуемый цвет текста */
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.main {
+    width: 100%;
+    background: #e8e8e8;
+    padding: 30px;
+    /*display: flex;*/
+    flex-direction: column;
+    min-height: 77.5vh; /* Мінімальна висота контейнера, яка робить його розтяжним на весь екран */
+}
+
+/*.container.grid-container-3 {*/
+/*    flex: 1; !* Розтягує цей контейнер на всю доступну висоту *!*/
+/*    display: flex;*/
+/*    flex-wrap: wrap; !* Дозволяє контейнеру збільшуватися на всю доступну висоту, розбиваючи на кілька рядків при необхідності *!*/
+/*}*/
+
+.footer {
+    text-align: center;
+    background: #151e1a;
+    color: white;
+    padding: 15px;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;               /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+    background: #272c23;        /* цвет зоны отслеживания */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: white;    /* цвет бегунка */
+    border-radius: 20px;       /* округлось бегунка */
+    /*border: 3px solid orange;  !* отступ вокруг бегунка *!*/
+}
+
+.name-page {
+    /*padding: 20px 10px;*/
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+}
+
+.name-page select{
+    width: 195px;
+    margin: 0;
+    height: 40px;
+    font-size: 18px;
+    line-height: 44px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #272c23;
+    border-radius: 50px;
+    padding: 10px;
+    color: white;
+}
+
+.name-page select option {
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+
+.comment-page {
+    width: 100%;
+    background: #ffff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.grid-container-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Простір між елементами */
+}
+
+.grid-container-2 {
+    border-radius: 50px;
+    background: white;
+    padding: 30px;
+    display: grid;
+    /*justify-items: center;*/
+    align-items: center;
+    /*grid-template-columns: repeat(2, 1fr);*/
+    grid-template-columns: repeat(auto-fill, minmax(280px, 380px));
+    /*grid-column-gap: 18px;*/
+    /*grid-row-gap: 20px;*/
+    /*border: 1px solid gray;*/
+    justify-content: center;
+
+    gap: 50px; /* Простір між елементами */
+}
+
+.grid-container-2 img {
+    border-radius: 50px;
+}
+
+.grid-container-10 {
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    gap: 5px; /* Простір між елементами */
+    padding: 0 10px;
+}
+
+.pagination {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.pagination button:hover {
+    cursor: pointer;
+}
+
+.match-buttons {
+    display: flex;
+}
+
+.custom-button {
+    border-radius: 50px;
+    color: white;
+    background: #174543;
+    border: none;
+    /*width: 50%;*/
+    margin-left: 10px;
+    width: 150px;
+    padding: 10px;
+}
+
+.custom-button:hover {
+    cursor: pointer;
+    background: #5d8e69;
+}
+
+.form-contain {
+    background: white;
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 15px;
+    /*margin-bottom: 10px;*/
+    border-radius: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease; /* Додає плавний перехід */
+}
+
+.form-container input:focus {
+    transform: scale(1.1);
+}
+
+.form-container input:hover {
+    transform: scale(1.1);
+}
+
+.form-container button {
+    background-color: #174543;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease; /* Додає плавний перехід */
+
+}
+
+.form-container button:hover {
+    color: black;
+    transform: scale(1.1);
+
+}
+
+.preview-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.file-preview {
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Додатковий стиль для видалення прев'ю призначений у разі необхідності */
+.delete-preview {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.delete-preview:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.loading {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Сховати текстовий зміст, але залишити проглядність */
+.upload-btn input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Сховати біжучий текстовий зміст */
+.upload-btn::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+/* Стилізувати контейнер, щоб виглядав як кнопка */
+.upload-btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid black;
+    color: black;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+/* ShowImages */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #cccccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    font-size: 50px;
+    cursor: pointer;
+    color: red;
+}
+
+.modal-close:hover {
+    color: #999;
+}
+
+.editor-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.editor-toolbar {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.editor-content {
+    min-height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+

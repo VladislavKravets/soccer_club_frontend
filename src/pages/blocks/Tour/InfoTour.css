@@ -5,6 +5,7 @@
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+
 }
 
 .info-tour-button:hover {
@@ -12,11 +13,20 @@
     background: white;
 }
 
-.info-tour-image{
-    transition: transform 0.3s ease; /* Додає плавний перехід */
+.info-tour-image {
+    width: 100%;
+    /*background: black;*/
+    /*display: block;*/
+    /*margin: 0 auto;*/
+    background-size: cover;
 }
 
-.info-tour-image:hover {
+.info-tour-image img{
+    transition: transform 0.3s ease; /* Додає плавний перехід */
+
+}
+
+.info-tour-image img:hover {
     cursor: pointer;
     transform: scale(1.1);
 }

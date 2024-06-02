@@ -11,10 +11,18 @@ function InfoTour(props) {
     const [visibleNewsCount, setVisibleNewsCount] = useState(2);
     const [visiblePhotoCount, setVisiblePhotoCount] = useState(2);
     const [modalImageUrl, setModalImageUrl] = useState(null); // Додайте стан для посилання на фотографію в модальному вікні
+    const [validImages, setValidImages] = useState([]);
+
 
     useEffect(() => {
         fetchInitialData();
-    }, []);
+        const validPhoto = photo.filter((post) => {
+            const img = new Image();
+            img.src = post.patch;
+            return img.complete;
+        });
+        setValidImages(validPhoto);
+    }, [photo]);
 
     const fetchInitialData = async () => {
         try {
@@ -22,6 +30,7 @@ function InfoTour(props) {
             const responsePhoto = await getTournamentAllPhoto(props.id);
             setNews(responseNews);
             setPhoto(responsePhoto);
+            // console.log(responsePhoto);
         } catch (error) {
             console.log('Error fetching data:', error);
         }
@@ -42,7 +51,6 @@ function InfoTour(props) {
     const closeModal = () => {
         setModalImageUrl(null); // Закриття модального вікна
     };
-
 
     return (
         <div>
@@ -75,14 +83,20 @@ function InfoTour(props) {
                     </h1>
                 </div>
                 <div className="grid-container-2">
-                    {photo.length > 0 ? photo.slice(0, visiblePhotoCount).map(post => (
-                            <li key={post.photoId}>
-                                <img className='info-tour-image' src={post.patch} alt="" onClick={() => handlePhotoClick(post.patch)} />
+                    {/*<div className='info-tour-image'>*/}
+                    {validImages.length > 0 ? validImages.map(post => (
+                            <li key={post.photoId} className='info-tour-image'>
+                                <img
+                                    src={post.patch}
+                                    alt=""
+                                    onClick={() => handlePhotoClick(post.patch)}
+                                />
                             </li>
                         ))
                         :
                         <h1>Поки немає</h1>
                     }
+                    {/*</div>*/}
                 </div>
                 {visiblePhotoCount < photo.length && (
                     <input className="info-tour-button" type="button" value="Показати більше" onClick={showMorePhotos}/>

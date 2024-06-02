@@ -1,7 +1,8 @@
 // teamService.js
 import axios from 'axios';
+import {Url} from "../enum/Url";
 
-const BASE_URL = 'http://localhost:8080/api/tournament-team';
+const BASE_URL = Url.local + "/tournament-team";
 
 export const getAllTeams = async (tournamentId) => {
     return await axios.get(BASE_URL + '/' + tournamentId);
