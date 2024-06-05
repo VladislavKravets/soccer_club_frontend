@@ -13,7 +13,7 @@ function CardNews(props) {
             <div className="card-news-text">
                 <p className='card-news-text-date'>{props.post.publicationDate}</p>
                 <h1 className='card-news-text-title'>{props.post.title}</h1>
-                <p className='card-news-text-info'>{props.post.content}</p>
+                <p className='card-news-text-info'>{props.post.content.slice(0,50) + "..."}</p>
             </div>
         </div>
     );

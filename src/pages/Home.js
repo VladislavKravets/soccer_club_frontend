@@ -12,7 +12,7 @@ function Home(props) {
     }, [dispatch]);
 
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (error || !news) return <h1> Помилка отримання новин </h1>; // Якщо помилка або news дорівнює null, нічого не виводимо
 
     return (
         <>

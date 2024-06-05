@@ -84,7 +84,8 @@ function InfoTour(props) {
                 </div>
                 <div className="grid-container-2">
                     {/*<div className='info-tour-image'>*/}
-                    {validImages.length > 0 ? validImages.map(post => (
+                    {/*{console.log(validImages.length)}*/}
+                    {validImages.length > 0 ? validImages.slice(1, validImages.length).map(post => (
                             <li key={post.photoId} className='info-tour-image'>
                                 <img
                                     src={post.patch}

@@ -36,7 +36,7 @@ const NewsForm = () => {
             if (response.data.message)
                 console.log(response.data.message);
             else
-                window.location.href = '/posts/' + response.data.tournamentId;
+                window.location.href = '/posts/' + response.data.newsId;
         } catch (error) {
             console.log('Помилка при отриманні даних:', error);
         }

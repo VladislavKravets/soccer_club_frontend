@@ -12,6 +12,14 @@ export const getPosts = async () => {
         throw new Error(error.response.data.message);
     }
 };
+export const getAllGlobalNews = async () => {
+    try {
+        const response = await axios.get(`https://soccer-club-backend.onrender.com/api/news/global-news`);
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.data.message);
+    }
+};
 //
 // // Отримати окреме бронювання за його ідентифікатором
 export const getPostId = async (id) => {
@@ -36,7 +44,7 @@ export const createPost = async (data) => {
     formData.append('news', blob);
 
     try {
-        return await axios.post('http://localhost:8080/api/news', formData, {
+        return await axios.post(`${API_BASE_URL}/news`, formData, {
             headers: {
                 // 'Content-Type': 'multipart/form-data', // Set Content-Type to multipart/form-data if needed
                 Authorization: `Bearer ${data.token}`

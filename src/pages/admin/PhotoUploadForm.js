@@ -67,20 +67,20 @@ function PhotoUploadForm(props) {
 
     return (
         <div className='main'>
-            <div className="container name-page">
-                <h1 style={{
-                    width: "100%",
-                    // textAlign: "center",
-                    padding: "10px 20px",
-                    background: "white",
-                    borderRadius: "30px"
-                }}>
-                    Додати фотографію
-                </h1>
-            </div>
-            <div className="container form-contain">
-                <div className='login-page'>
-                    <h1>Завантаження фотографій</h1>
+            <div className="container">
+                <div className="name-page">
+                    <h1 style={{
+                        width: "100%",
+                        // textAlign: "center",
+                        padding: "10px 20px",
+                        background: "white",
+                        borderRadius: "30px"
+                    }}>
+                        Додати фотографію
+                    </h1>
+                </div>
+                <div className="form-contain">
+                    <h1 style={{marginBottom: "50px", textAlign: "center"}}>Завантаження фотографій</h1>
                     <form onSubmit={handleFormSubmit} className="form-container">
                         <input
                             type="text"
@@ -93,14 +93,14 @@ function PhotoUploadForm(props) {
                             type="file"
                             onChange={handleFileChange}
                         />
+
                         <div>
                             {filePreview && (
                                 <div className="preview-container">
                                     <img
-                                        type="file" className="my" id="myfile" name="myfile"
                                         src={filePreview}
                                         alt="Preview"
-                                        // className="file-preview"
+                                        className="file-preview"
                                     />
                                 </div>
                             )}
@@ -112,7 +112,7 @@ function PhotoUploadForm(props) {
                 </div>
                 {/*<p>{message}</p>*/}
                 <br/>
-                <h1 style={{color: 'black'}}>{message}</h1>
+                <h1 style={{color: 'black', textAlign: "center"}}>{message}</h1>
             </div>
         </div>
     );
